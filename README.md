@@ -56,3 +56,18 @@
 ```
     npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-chartjs-2 chart.js daisyui axios react-hot-toast @tailwindcss/line-clamp 
 ```
+
+###configure auto import sort eslint
+1.Instal simplem import sort
+```
+    npm i -D eslint-plugin-simple-import
+```
+2.add rule in '.seslint.cjs'
+
+```
+    'simple-import-sort/imports':'error'
+```
+
+3.add simple -import sort plufin in .eslint cjs
+```
+plugins [..],'simple -import-sort```
