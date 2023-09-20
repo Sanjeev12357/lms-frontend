@@ -51,6 +51,12 @@
 @tailwind utilities;
 ```
 
+5.Add the following details int the plugins property of tailwind.congfig .js
+```
+  plugins: [require("daisyui"),require("@tailwindcss/line-clamp")],
+
+```
+
 ###adding pugins and dependencies
 
 ```
@@ -71,3 +77,8 @@
 3.add simple -import sort plufin in .eslint cjs
 ```
 plugins [..],'simple -import-sort```
+
+
+
+
+
