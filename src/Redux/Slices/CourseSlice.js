@@ -23,7 +23,7 @@ export const getAllCourses = createAsyncThunk("/course/getAllCourses", async (da
     }
 })
 
-export const createNewCourse = createAsyncThunk("/course/create", async (data) => {
+export const createNewCourse = createAsyncThunk("/courses/createCourse", async (data) => {
     try {
         let formData = new FormData();
         formData.append("title", data?.title);
