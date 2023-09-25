@@ -12,14 +12,18 @@ function NotFound(){
                 Page not found..
             </div>
 
-            <button className="mt-5 ">
-                <a className="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-yellow-500 focus:outline-none focus:ring">
-                    <span onClick={()=>navigate(-1)} className="relative block px-8 py-3 bg-[#1A2238] border border-current">
-                        Go Back
+                            <button className="mt-5">
+                <a
+                    className="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-yellow-500 focus:outline-none focus:ring"
+                    onClick={() => navigate(-1)}
+                    aria-label="Go Back"
+                >
+                    <span className="relative block px-8 py-3 bg-[#1A2238] border border-current">
+                    Go Back
                     </span>
                 </a>
-                
-            </button>
+                </button>
+
         </div>
     );
 }

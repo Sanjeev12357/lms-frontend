@@ -14,7 +14,8 @@ import CourseDescription from "./pages/Course/CourseDescription"
 import RequireAuth from "./Components/Auth/RequireAuth"
 import CreateCourse from "./pages/Course/CreateCourse"
 
-import CourseList from "./pages/Course/CourseList"
+ import CourseList from "./pages/Course/CourseList"
+import Profile from "./pages/User/Profile"
 
 
 function App() {
@@ -23,21 +24,29 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<HomePage/>}></Route>
-      <Route path="/about" element={<AboutUS/>}></Route>
-      <Route path="/courses" element={<CourseList/>}></Route>
-      <Route path="/contact" element={<Contact/>}></Route>
-      <Route path="/signup" element={<Signup/>}></Route>
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/course/description" element={<CourseDescription/>}></Route>
-      <Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
-      <Route path="/courses/createCourse" element={<CreateCourse/>}></Route>
-    </Route>
-      <Route path="/denied" element={<Denied/>}></Route>
-     
-      <Route path='*' element={<NotFound/>}></Route>
+  <Route path="/" element={<HomePage />} />
+  <Route path="/about" element={<AboutUS />} />
+  <Route path="/courses" element={<CourseList />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/signup" element={<Signup />} />
+  <Route path="/login" element={<Login />} />
+  <Route path="/course/description" element={<CourseDescription />} />
 
-    </Routes>
+  {/* Protect routes with admin access */}
+<Route element={<RequireAuth allowedRoles={["ADMIN"]}/>}>
+<Route path="/courses/createCourse" element={<CreateCourse/>}></Route>
+</Route>
+
+  <Route path="/denied" element={<Denied />} />
+
+  {/* Protect routes with user access */}
+ <Route element={<RequireAuth allowedRoles={["ADMIN","USER"]}/>}>
+ <Route path="/user/profile" element={<Profile/>}></Route>
+ </Route>
+
+  <Route path='*' element={<NotFound />} />
+</Routes>
+
     </>
   )
 }
