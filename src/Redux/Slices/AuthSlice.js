@@ -48,7 +48,7 @@ export const Login=createAsyncThunk("/auth/login",async(data)=>{
     }
 })
 
-export const logout=createAsyncThunk("/auth/logout",async()=>{
+export const logout=createAsyncThunk("/auth/logout",async(data)=>{
     try{
         const res=axiosInstance.post("/user/logout");
         toast.promise(res,{
@@ -64,6 +64,38 @@ export const logout=createAsyncThunk("/auth/logout",async()=>{
 
     }catch(error){
 
+        toast.error(error?.response?.data?.message)
+    }
+})
+
+export const updateProfile=createAsyncThunk("/user/update/profile",async(data)=>{
+    try{
+        const res=axiosInstance.put(`/user/update/${data[0]}`,data[1]);
+
+        toast.promise(res,{
+            loading:"wait ! profile update in progress",
+            success:(data)=>{
+                return data?.data?.message;
+            },
+            error:"failed to update Profile"
+        });
+
+        console.log(res);
+        return (await res).data;
+
+    }catch(error){
+        toast.error(error?.response?.data?.message)
+
+    }
+})
+
+export const getUserData=createAsyncThunk("/user/details",async()=>{
+    try{
+        const res=axiosInstance.get("/user/me");
+        return (await res).data;
+
+    }catch(error){
+        toast.error(error?.response?.data?.message)
     }
 })
 
@@ -86,6 +118,14 @@ const authSlice = createSlice({
             state.data={};
             state.isLoggedIn=false;
             state.role="";
+        })
+        .addCase(getUserData.fulfilled,(state,action)=>{
+            localStorage.setItem("data",JSON.stringify(action?.payload?.user));
+            localStorage.setItem("isLoggedIn",true);
+            localStorage.setItem("role",action?.payload?.user?.role);
+            state.isLoggedIn=true;
+            state.data=action?.payload?.user;
+            state.role=action?.payload?.user?.role;
         })
     }
 });
