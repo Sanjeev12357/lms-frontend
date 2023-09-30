@@ -1,14 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authSliceReducer from './Slices/AuthSlice';
-import courseSliceReducer from "./Slices/CourseSlice";
+
 import RazorpaySlice from "./Slices/RazorpaySlice";
 import LectureSlice from "./Slices/LectureSlice";
+import StatsSlice from "./Slices/StatsSlice";
+import CourseSlice from "./Slices/CourseSlice";
+
 const store=configureStore({
     reducer:{
         auth:authSliceReducer,
-        course:courseSliceReducer,
+        course:CourseSlice,
         razorpay:RazorpaySlice,
         lecture:LectureSlice,
+        stat:StatsSlice,
     },
     devTools:true
 });
