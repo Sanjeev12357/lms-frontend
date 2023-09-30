@@ -19,6 +19,7 @@ import Profile from "./pages/User/Profile"
 import EditProfile from "./pages/User/EditProfile"
   
 import Checkout from "./pages/Payment/checkout"
+import Displaylectures from "./pages/Dashboard/Displaylectures"
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
  <Route path="/user/profile" element={<Profile/>}></Route>
  <Route path="/user/editprofile" element={<EditProfile/>}></Route>
  <Route path="/checkout" element={<Checkout/>}></Route>
+ <Route path='/course/displaylectures' element={<Displaylectures/>}></Route>
  </Route>
 
   <Route path='*' element={<NotFound />} />
