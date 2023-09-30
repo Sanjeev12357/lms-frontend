@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCourseLectures, getCourseLectures } from "../../Redux/Slices/LectureSlice";
+import { deleteCourseLecture, getCourseLectures } from "../../Redux/Slices/LectureSlice";
 
 function Displaylectures() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function Displaylectures() {
 
   async function onLectureDelete(courseId ,lectureId){
     console.log(courseId,lectureId);
-    await dispatch(deleteCourseLectures({courseId:courseId,lectureId:lectureId}));
+    await dispatch(deleteCourseLecture({courseId:courseId,lectureId:lectureId}));
     await dispatch(getCourseLectures(courseId));
 
   }

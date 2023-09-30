@@ -62,7 +62,7 @@ function AddLecture(){
             <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 mx-16">
                 <div className="flex flex-col gap-5 p-2 shadow-[0_0_5px_black] w-96 rounded-lg">
                     <header className="flex items-center justify-center relative">
-                    <button className="absolute left-2 text-xl text-green-500"
+                    <button className="absolute margin-left-[50px] right-0 text-xl text-green-500"
                     
                     onClick={()=>navigate(-1)}><AiOutlineArrowLeft/></button>
                         <h1 className="text-xl text-yellow-500 font-semibold">
