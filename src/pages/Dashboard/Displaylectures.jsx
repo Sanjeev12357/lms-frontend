@@ -31,7 +31,7 @@ function Displaylectures() {
         <div className="text-center text-2xl font-semibold text-yellow-500">
             Course Name:{state?.title}
         </div>
-        {lectures && lectures.length > 0 && <div className="flex justify-center gap-10 w-full">
+        <div className="flex justify-center gap-10 w-full">
             <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black]">
 
                 <video src={lectures && lectures[currentVideo]?.lecture?.secure_url  }>
@@ -76,10 +76,12 @@ function Displaylectures() {
                     )
                 })}
             </ul>
-        </div>}
+        </div>
     </div>
   
   </HomeLayout>;
 }
 
 export default Displaylectures;
+
+// lectures && lectures.length > 0 && 
